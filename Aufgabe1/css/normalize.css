@@ -1,0 +1,9 @@
+/*
+ * Such files already exists. It would be better to use them instead of reinventing them, but for an application
+ * I tried to keep it as much my work as possible
+ */
+
+* {
+    padding: 0;
+    margin: 0;
+}

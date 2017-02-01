@@ -1,0 +1,47 @@
+.navbar-nav {
+    text-align: center;
+
+    padding: 5pt;
+
+    background-color: #000000E0;
+    color: white;
+
+    font-size: 12pt;
+
+    z-index: 10;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    list-style: none;
+}
+
+.navbar-nav > li {
+    padding-left: 5pt;
+    padding-right: 5pt;
+}
+
+.navbar-nav > li > a:link  {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.navbar-nav > li > a:visited, .navbar-nav > li > a:active {
+    color: #aaaaaa;
+    text-decoration: none;
+}
+
+/* If the width is too small, display links under each other */
+@media (min-width: 530px) {
+    .navbar-nav {
+        white-space: nowrap;
+    }
+
+    .navbar-nav > li {
+        display: inline;
+    }
+}
+
+/* TODO Icons */

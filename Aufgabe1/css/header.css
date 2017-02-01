@@ -1,0 +1,25 @@
+.title {
+    /* I keep the height at a level where you can se there is more */
+    height: calc(70vh - 92pt);
+    min-height: 100px;
+
+    padding-top: 30vh;
+    padding-top: calc(30vh + 72pt);
+
+    text-align: center;
+
+    /* TODO: Background image */
+    background-color: #1e1e1e;
+}
+
+@media (min-width: 530px) {
+    .title {
+        height: calc(60vh - 44pt);
+        padding-top: calc(40vh + 23pt);
+    }
+}
+
+.title > * > * {
+    color: white;
+    text-decoration: none;
+}

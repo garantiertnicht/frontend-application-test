@@ -1,1 +1,15 @@
-/* CSS-Anpassungen bitte hier */
+/*
+ * If you want to minimize, you probably want the file to be in here.
+ * For now, I keep it as imports as it makes it more organized to work with.
+ */
+@import "normalize.css";
+@import "fonts.css";
+@import "navigation.css";
+@import "header.css";
+@import "content.css";
+
+/* As links with # are not implemented, make the user aware they don't work */
+a:link[href^="#"] {
+    cursor: not-allowed;
+    /* TODO find a way to display it BEFORE the user hovers */
+}
