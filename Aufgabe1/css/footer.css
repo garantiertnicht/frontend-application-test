@@ -1,0 +1,12 @@
+.footer-wrapper {
+    margin-top: 9pt;
+    padding-top: 3pt;
+    padding-bottom: 3pt;
+
+    background-color: #1e1e1e;
+    color: #777777;
+
+    text-align: center;
+    font-size: 10pt;
+    font-weight: 300;
+}
