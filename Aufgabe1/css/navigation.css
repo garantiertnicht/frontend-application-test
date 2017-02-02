@@ -3,7 +3,7 @@
 
     padding: 5pt;
 
-    background-color: #000000E0;
+    background-color: #00000077;
     color: white;
 
     font-size: 12pt;
@@ -37,6 +37,7 @@
 @media (min-width: 530px) {
     .navbar-nav {
         white-space: nowrap;
+        background-color: #000000E0;
     }
 
     .navbar-nav > li {
