@@ -3,14 +3,14 @@
 
     padding: 5pt;
 
-    background-color: #00000077;
+    background-color: #111111;
     color: white;
 
     font-size: 12pt;
 
     z-index: 10;
 
-    position: fixed;
+    position: relative;
     top: 0;
     left: 0;
     right: 0;
@@ -36,6 +36,8 @@
 /* If the width is too small, display links under each other */
 @media (min-width: 530px) {
     .navbar-nav {
+        position: fixed;
+
         white-space: nowrap;
         background-color: #000000E0;
     }

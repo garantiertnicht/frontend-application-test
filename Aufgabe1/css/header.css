@@ -1,10 +1,7 @@
 .title {
     /* I keep the height at a level where you can se there is more */
-    height: calc(70vh - 100pt);
-    min-height: 100px;
-
-    padding-top: 30vh;
-    padding-top: calc(30vh + 72pt);
+    height: calc(60vh - 125pt);
+    padding-top: 40vh;
 
     text-align: center;
 
@@ -14,8 +11,7 @@
 
 @media (min-width: 530px) {
     .title {
-        height: calc(60vh - 52pt);
-        padding-top: calc(40vh + 23pt);
+        height: calc(60vh - 30pt);
     }
 }
 
