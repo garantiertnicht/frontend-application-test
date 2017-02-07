@@ -11,6 +11,7 @@ h2 {
 h3 {
     font-size: 18pt;
     font-weight: 400;
-    padding-top: 5pt;
-    padding-bottom: 3pt;
+
+    padding-top: 10px;
+    padding-bottom: 7px;
 }

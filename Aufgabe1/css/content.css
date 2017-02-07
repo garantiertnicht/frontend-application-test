@@ -4,3 +4,36 @@
 
     font-size: 12pt;
 }
+
+.content > .part {
+    float: left;
+
+    width: calc(25% - 40px);
+
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+/* Taken from http://cssmojo.com/the-very-latest-clearfix-reloaded/ */
+.content:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+@media screen and (min-width: 700px) and (max-width: 1064px) {
+    .content > .part {
+        width: calc(50% - 40px);
+    }
+
+    .content > .part:nth-child(3) {
+        clear: both;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .content > .part {
+        float: none;
+        width: 100%;
+    }
+}
