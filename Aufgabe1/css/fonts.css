@@ -1,16 +1,23 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+
+html {
+    font-family: 'Raleway';
+    font-weight: 200;
+}
+
 h1 {
     font-size: 28pt;
-    font-weight: 500;
+    font-weight: 400;
 }
 
 h2 {
     font-size: 22pt;
-    font-weight: 500;
+    font-weight: 400;
 }
 
 h3 {
     font-size: 18pt;
-    font-weight: 400;
+    font-weight: 300;
 
     padding-top: 10px;
     padding-bottom: 7px;
