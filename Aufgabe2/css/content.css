@@ -1,0 +1,31 @@
+.content {
+    margin-left: 20px;
+    margin-right: 20px;
+
+    position: relative;
+
+    overflow-x: hidden;
+    height: auto;
+}
+
+.content > .part {
+    position: absolute;
+    top: 0;
+    left: -100%;
+
+    display: inline-block;
+
+    width: calc(100% - 40px);
+
+    margin: 0;
+    padding: 0;
+
+    -webkit-transition: left 1s;
+    -moz-transition: left 1s;
+    -o-transition: left 1s;
+    transition: left 1s;
+}
+
+.content > .part:first-child {
+    left: 0;
+}
