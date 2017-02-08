@@ -1,8 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=Raleway');
+/* TODO Use local font or google alternative. */
 
 html {
     font-family: 'Raleway';
     font-weight: 200;
+    font-size: 12pt;
 }
 
 h1 {
