@@ -11,7 +11,7 @@
 .content > .part {
     position: absolute;
     top: 0;
-    left: -100%;
+    left: calc(-100% - 120px);
 
     display: inline-block;
 
@@ -31,14 +31,21 @@
     left: 0;
 }
 
+.content > .part > .text {
+    position: absolute;
+    top: 0;
+    left: 130px;
+}
+
+.content > .part > h3 {
+    display: inline-block;
+}
+
 .content > .part > img {
     left: 0;
 
     width: 120px;
 
-    /* TODO I don't really like this method */
-    float: left;
-
-    margin-right: 10px;
-    margin-top: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
 }

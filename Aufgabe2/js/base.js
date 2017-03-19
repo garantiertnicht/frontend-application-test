@@ -16,7 +16,7 @@ function Slide(content, imageURL, imageAlternative) {
      * A function that hides the current slide
      */
     this.hide = function () {
-        this.content.style.left = "-100%";
+        this.content.style.left = "calc(-100% - 120px)";
     };
 
     this.prepare = function () {
@@ -36,8 +36,8 @@ function Slide(content, imageURL, imageAlternative) {
             imageElement.setAttribute("alt", this.imageAlternative);
             this.content.insertBefore(imageElement, this.content.childNodes[0]);
 
-            resizeSlide();
             this.imageAdded = true;
+            resizeSlide();
         }
     };
 }
@@ -78,8 +78,15 @@ function resizeSlide() {
 
     for(var i = 0; i < partElements.length; i++) {
         var element = partElements[i];
-        if(element.offsetHeight > highestSize) {
-            highestSize = element.offsetHeight;
+
+        var height = element.getElementsByClassName("text")[0].offsetHeight;
+
+        if(element.getElementsByTagName("img").length !== 0) {
+            height = Math.max(height, element.getElementsByTagName("img")[0].offsetHeight);
+        }
+
+        if(height > highestSize) {
+            highestSize = height;
         }
     }
 
