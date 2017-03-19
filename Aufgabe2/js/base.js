@@ -36,7 +36,7 @@ function Slide(content, imageURL, imageAlternative) {
             imageElement.setAttribute("alt", this.imageAlternative);
             this.content.insertBefore(imageElement, this.content.childNodes[0]);
 
-            onResize();
+            resizeSlide();
             this.imageAdded = true;
         }
     };
@@ -45,11 +45,16 @@ function Slide(content, imageURL, imageAlternative) {
 function SlideShow(elements) {
     this.elements = elements;
     this.current = 0;
+    this.paused = false;
 
     this.elements[0].addImage();
     this.elements[1].prepare();
 
     this.showNext = function () {
+        if(this.paused) {
+            return;
+        }
+
         this.elements[this.current].hide();
         this.current++;
 
@@ -64,7 +69,8 @@ function SlideShow(elements) {
     };
 }
 
-function onResize() {
+// Sadly, I need to use JS here AFAIK
+function resizeSlide() {
     var containerElement = document.getElementsByClassName("content")[0];
     var partElements = document.getElementsByClassName("part");
 
@@ -86,16 +92,25 @@ function initialize() {
 
     for(var i = 0; i < partElements.length; i++) {
         var element = partElements[i];
-        slides[i] = new Slide(element, 5000, "test.img", "A test image");
+        slides[i] = new Slide(element, element.dataset.imageUrl, element.dataset.imageAlt);
     }
 
     var slideShow = new SlideShow(slides);
 
-    document.body.onresize = onResize;
+    document.body.onresize = resizeSlide;
+
+    // Pause on MouseOver - Probably someone is reading
+    document.getElementsByClassName("content")[0].onmouseover = function () {
+        slideShow.paused = true
+    };
+
+    document.getElementsByClassName("content")[0].onmouseout = function () {
+        slideShow.paused = false
+    };
 
     setInterval(function () {
         slideShow.showNext();
-    }, 4000);
+    }, 8000);
 
-    onResize();
+    resizeSlide();
 }

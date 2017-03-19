@@ -26,6 +26,19 @@
     transition: left 1s;
 }
 
+/* Display first image */
 .content > .part:first-child {
     left: 0;
+}
+
+.content > .part > img {
+    left: 0;
+
+    width: 120px;
+
+    /* TODO I don't really like this method */
+    float: left;
+
+    margin-right: 10px;
+    margin-top: 10px;
 }
