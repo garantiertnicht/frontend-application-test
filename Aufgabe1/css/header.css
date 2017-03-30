@@ -5,8 +5,10 @@
 
     text-align: center;
 
-    /* TODO: Background image */
-    background-color: #1e1e1e;
+    background: linear-gradient(#e8eaf3a0, #e8eaf3a0), url("../../img/header.svg");
+    background-position: top right;
+    background-repeat: no-repeat;
+    background-size: auto 100vh;
 }
 
 @media (min-width: 530px) {
@@ -15,7 +17,7 @@
     }
 }
 
-.title > * > * {
-    color: white;
+.title > * > a:link, .title > * > a:active, .title > * > a:visited {
     text-decoration: none;
+    color: #262939;
 }

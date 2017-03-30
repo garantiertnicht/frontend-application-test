@@ -3,10 +3,10 @@
 
     padding: 5pt;
 
-    background-color: #111111;
-    color: white;
+    background-color: #e8eaf322;
+    color: #f2f8f8;
 
-    font-size: 12pt;
+    font-size: 13pt;
 
     z-index: 10;
 
@@ -23,14 +23,9 @@
     padding-right: 5pt;
 }
 
-.navbar-nav > li > a:link  {
-    color: #ffffff;
+.navbar-nav > li > a:link, a:visited, .navbar-nav > li > a:active {
     text-decoration: none;
-}
-
-.navbar-nav > li > a:visited, .navbar-nav > li > a:active {
-    color: #aaaaaa;
-    text-decoration: none;
+    color: #262939;
 }
 
 /* If the width is too small, display links under each other */
@@ -39,7 +34,6 @@
         position: fixed;
 
         white-space: nowrap;
-        background-color: #000000E0;
     }
 
     .navbar-nav > li {
