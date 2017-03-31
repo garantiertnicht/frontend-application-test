@@ -3,7 +3,7 @@
 
     padding: 5pt;
 
-    background-color: #e8eaf322;
+    background-color: #e8eaf3;
     color: #f2f8f8;
 
     font-size: 13pt;
@@ -29,10 +29,10 @@
 }
 
 /* If the width is too small, display links under each other */
-@media (min-width: 530px) {
+@media (min-width: 830px) {
     .navbar-nav {
+        background-color: #e8eaf322;
         position: fixed;
-
         white-space: nowrap;
     }
 

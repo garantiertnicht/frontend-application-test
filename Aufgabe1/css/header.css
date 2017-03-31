@@ -1,19 +1,23 @@
 .title {
     /* I keep the height at a level where you can see there is more */
-    height: calc(60vh - 125pt);
+    height: calc(60vh - 152pt);
     padding-top: 40vh;
 
     text-align: center;
 
-    background: linear-gradient(#e8eaf3a0, #e8eaf3a0), url("../../img/header.svg");
+    background: linear-gradient(#e8eaf3d0, #e8eaf3d0), url("../../img/header.svg");
     background-position: top right;
     background-repeat: no-repeat;
     background-size: auto 100vh;
 }
 
-@media (min-width: 530px) {
+@media (min-width: 830px) {
     .title {
         height: calc(60vh - 30pt);
+        background: linear-gradient(#e8eaf3a0, #e8eaf3a0), url("../../img/header.svg");
+        background-position: top right;
+        background-repeat: no-repeat;
+        background-size: auto 100vh;
     }
 }
 
