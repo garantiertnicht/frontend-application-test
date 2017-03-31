@@ -9,3 +9,33 @@
     font-size: 10pt;
     font-weight: 300;
 }
+
+.icon-facebook {
+    background-image: url("../../img/facebook.png");
+    background-size: 20px 20px;
+}
+
+.icon-twitter {
+    background-image: url("../../img/twitter.svg");
+    background-size: 30px 30px;
+    background-position: center center;
+}
+
+.icon-google {
+    background-image: url("../../img/google.png");
+    background-size: 20px 20px;
+}
+
+.icon {
+    width: 20px;
+    height: 20px;
+
+    display: inline-block;
+
+    margin-right: 8px;
+    margin-left: 8px;
+}
+
+.footer-wrapper > p {
+    margin-top: 5px;
+}
