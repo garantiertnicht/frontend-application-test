@@ -4,24 +4,33 @@ function Slide(content, imageURL, imageAlternative) {
     this.imageAlternative = imageAlternative;
     this.imageAdded = false;
 
+    this.slideHiddenPositionLeft = "calc(-100% - 120px)";
+    this.slideHiddenPositionRight = "100%";
+    this.slideShownPosition = "0";
+
     /**
      * A function that sets the hidden attribute to false and adds the image if necessary.
      */
     this.present = function () {
         this.content.style.visibility = "visible";
-        this.content.style.left = "0";
+        this.content.style.left = this.slideShownPosition;
     };
 
     /**
      * A function that hides the current slide
      */
     this.hide = function () {
-        this.content.style.left = "calc(-100% - 120px)";
+        this.content.style.left = this.slideHiddenPositionLeft;
     };
 
-    this.prepare = function () {
+    this.prepare = function (fromLeft) {
+        if(fromLeft) {
+            this.content.style.left = this.slideHiddenPositionLeft;
+        } else {
+            this.content.style.left = this.slideHiddenPositionRight;
+        }
+
         this.content.style.visibility = "hidden";
-        this.content.style.left = "100%";
 
         this.addImage();
     };
@@ -48,26 +57,60 @@ function SlideShow(elements) {
     this.paused = false;
 
     this.elements[0].addImage();
-    this.elements[1].prepare();
+    this.elements[1].prepare(false);
 
+    /**
+     * Shows the next slide.
+     */
     this.showNext = function () {
+        this.goToSlide(this.current + 1);
+    };
+
+    /**
+     * Goes to the given slide.
+     * @param slide The slide to go to.
+     */
+    this.goToSlide = function (slide) {
         if(this.paused) {
             return;
         }
 
         this.elements[this.current].hide();
-        this.current++;
+        this.current = slide;
 
         if(this.current >= elements.length) {
-            this.current = 0;
+            this.current -= elements.length;
         }
 
         this.elements[this.current].present();
 
         var nextElementNumber = this.current + 1 >= elements.length ? 0 : this.current + 1;
-        elements[nextElementNumber].prepare();
+        elements[nextElementNumber].prepare(false);
     };
-}
+
+    /**
+     * Prepares to go to the given slide and goes to it (after a small delay).
+     * Will slide to the right or the left depending on the position.
+     * @param slide The slide to go to.
+     */
+    this.prepareAndGoTo = function (slide) {
+        if (slide == this.current) {
+            // Do not do anything if the current slide is there
+            return;
+        }
+
+        var fromRight = false;
+
+        if (slide < this.current) {
+            fromRight = true;
+        }
+
+        elements[slide].prepare(fromRight);
+
+        // Some browsers may do the animation correctly if done in one frame
+        setTimeout(this.goToSlide(slide), 20);
+    }
+};
 
 // Sadly, I need to use JS here AFAIK
 function resizeSlide() {
