@@ -57,7 +57,7 @@ function SlideShow(elements) {
      * Goes to the given slide
      * @param slide The slide to go to.
      * @param manual If the action is invoked by the user
-     * @param toLeft If the old slide should move to the left. Currently breaks the animation on some edge-cases. TODO?
+     * @param toLeft If the old slide should move to the left.
      */
     this.goToSlide = function (slide, manual) {
         if(this.paused && !manual) {

@@ -1,5 +1,4 @@
 /* As links with # are not implemented, make the user aware they don't work */
 a:link[href^="#"] {
     cursor: not-allowed;
-    /* TODO find a way to display it BEFORE the user hovers */
 }

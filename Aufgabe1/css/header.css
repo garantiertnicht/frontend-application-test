@@ -6,8 +6,8 @@
 
     text-align: center;
 
-    background: linear-gradient(#EEEEEE77, #EEEEEE22), url("../../img/header.svg");
-    background-position: top right;
+    background: linear-gradient(#000000EE, #000000AA), url("../../img/header.svg");
+    background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -15,8 +15,8 @@
 @media screen and (min-width: 830px) {
     .title {
         height: calc(60vh - 30pt);
-        background: linear-gradient(#EEEEEE77, #EEEEEE22), url("../../img/header.svg");
-        background-position: top right;
+        background: linear-gradient(#000000EE, #000000AA), url("../../img/header.svg");
+        background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
     }
@@ -24,5 +24,5 @@
 
 .title > * > a:link, .title > * > a:active, .title > * > a:visited {
     text-decoration: none;
-    color: #262939;
+    color: #EEEEEE;
 }
