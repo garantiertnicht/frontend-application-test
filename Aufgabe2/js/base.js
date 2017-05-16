@@ -120,7 +120,7 @@ function resizeSlide() {
     }
 
     if(highestSize > 0) {
-        highestSize += 30;  // Some extra space for buttons and to be extra-safe
+        highestSize += 35;  // Some extra space for buttons and to be extra-safe
     }
 
     containerElement.style.height = highestSize + "px";
