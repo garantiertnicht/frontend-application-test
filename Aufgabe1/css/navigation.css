@@ -3,8 +3,8 @@
 
     padding: 5pt;
 
-    background-color: #e8eaf3;
     color: #f2f8f8;
+    background-color: #EEEEEE;
 
     font-size: 13pt;
 
@@ -23,15 +23,15 @@
     padding-right: 5pt;
 }
 
-.navbar-nav > li > a:link, a:visited, .navbar-nav > li > a:active {
+.navbar-nav > li > a:link, .navbar-nav > li > a:visited, .navbar-nav > li > a:active {
     text-decoration: none;
-    color: #262939;
+    color: #17181D;
 }
 
 /* If the width is too small, display links under each other */
 @media (min-width: 830px) {
     .navbar-nav {
-        background-color: #e8eaf322;
+        background-color: #FFFFFF22;
         position: fixed;
         white-space: nowrap;
     }
@@ -40,5 +40,3 @@
         display: inline;
     }
 }
-
-/* TODO Icons */

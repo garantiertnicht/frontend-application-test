@@ -10,8 +10,8 @@
 
 .content > .part {
     position: absolute;
-    top: 0;
-    left: calc(-100% - 120px);
+
+    opacity: 0;
 
     display: inline-block;
 
@@ -20,21 +20,21 @@
     margin: 0;
     padding: 0;
 
-    -webkit-transition: left 1s;
-    -moz-transition: left 1s;
-    -o-transition: left 1s;
-    transition: left 1s;
+    -webkit-transition: opacity 900ms;
+    -moz-transition: opacity 900ms;
+    -o-transition: opacity 900ms;
+    transition: opacity 900ms;
 }
 
 /* Display first image */
 .content > .part:first-child {
-    left: 0;
+    opacity: 1;
 }
 
 .content > .part > .text {
     position: absolute;
     top: 0;
-    left: 130px;
+    left: 0;
 }
 
 .content > .part > h3 {
@@ -42,10 +42,45 @@
 }
 
 .content > .part > img {
-    left: 0;
+    visibility: hidden;
+    width: 0;
+}
 
-    width: 120px;
+.button-group {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+}
 
-    padding-right: 10px;
-    padding-top: 10px;
+@media screen and (min-width: 550px) {
+    .content > .part > .text {
+        left: calc(25% + 20px);
+    }
+
+    .content > .part > img {
+        visibility: visible;
+
+        left: 0;
+
+        width: 25%;
+        max-width: 200px;
+
+        padding-right: 10px;
+        padding-top: 10px;
+    }
+}
+
+.button-group > button {
+    color: transparent;
+    background-color: transparent;
+
+    border: 1px black solid;
+    border-radius: 5px;
+
+    margin-left: 5px;
+    margin-right: 5px;
+
+    width: 10px;
+    height: 10px;
 }

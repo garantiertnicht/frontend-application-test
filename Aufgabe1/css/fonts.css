@@ -5,17 +5,19 @@ html {
     font-family: 'Fira Sans';
     font-weight: 200;
     font-size: 12pt;
-    color: #262939;
+    color: #17181D;
 
-    background-color: #f2f8f8;
+    min-height: 100vh;
+
+    background-color: #FFFFFF;
 }
 
 a:link, a:active {
-    color: #1c3bb9;
+    color: #1C3BB9;
 }
 
 a:visited {
-    color: #40985b;
+    color: #6239C9;
 }
 
 h1 {

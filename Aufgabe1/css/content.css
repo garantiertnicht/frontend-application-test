@@ -8,14 +8,14 @@
     /*float: left;*/
     display: inline-block;
 
-    width: calc(25% - 43px); /* No, I do not know why the extra 3px are needed. */
+    width: calc(25% - 45px);
     vertical-align: text-top;
 
     padding-left: 20px;
     padding-right: 20px;
 }
 
-@media screen and (min-width: 700px) and (max-width: 1064px) {
+@media screen and (max-width: 1064px) {
     .content > .part {
         width: calc(50% - 43px);
     }

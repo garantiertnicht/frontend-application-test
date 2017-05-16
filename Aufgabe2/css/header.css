@@ -1,0 +1,18 @@
+.title {
+    /* I keep the height at a level where you can see there is more */
+    bottom: 0;
+    top: 0;
+    height: 20vh;
+    padding-top: calc(50vh - 304pt);
+}
+
+@media (min-width: 830px) {
+    .title {
+        height: 40vh;
+        padding-top: calc(60vh - 192pt);
+    }
+
+    .title > h1 {
+        padding-top: 20pt;
+    }
+}

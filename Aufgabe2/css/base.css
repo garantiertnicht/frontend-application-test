@@ -6,5 +6,7 @@
 @import "../../Aufgabe1/css/footer.css";
 @import "../../Aufgabe1/css/unsupportedlink.css";
 
-/* The only change is the content file */
+/* Additional and overriding */
 @import "content.css";
+@import "header.css";
+@import "footer.css";

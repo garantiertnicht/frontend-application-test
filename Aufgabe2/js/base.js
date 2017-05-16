@@ -9,37 +9,25 @@ function Slide(content, imageURL, imageAlternative) {
     this.slideShownPosition = "0";
 
     /**
-     * A function that sets the hidden attribute to false and adds the image if necessary.
+     * Presents the slide and loads the image if necessary
      */
     this.present = function () {
-        this.content.style.visibility = "visible";
-        this.content.style.left = this.slideShownPosition;
+        this.addImage();
+        this.content.style.opacity = 1;
     };
 
     /**
      * A function that hides the current slide
      */
     this.hide = function () {
-        this.content.style.left = this.slideHiddenPositionLeft;
-    };
-
-    this.prepare = function (fromLeft) {
-        if(fromLeft) {
-            this.content.style.left = this.slideHiddenPositionLeft;
-        } else {
-            this.content.style.left = this.slideHiddenPositionRight;
-        }
-
-        this.content.style.visibility = "hidden";
-
-        this.addImage();
+        this.content.style.opacity = 0;
     };
 
     /**
      * Adds the image to the slide. Should not be called manually.
      */
     this.addImage = function() {
-        if(!this.imageAdded) {
+        if(!this.imageAdded && window.innerWidth >= 550) {
             var imageElement = document.createElement("img");
             imageElement.setAttribute("src", this.imageURL);
             imageElement.setAttribute("alt", this.imageAlternative);
@@ -57,21 +45,22 @@ function SlideShow(elements) {
     this.paused = false;
 
     this.elements[0].addImage();
-    this.elements[1].prepare(false);
 
     /**
      * Shows the next slide.
      */
     this.showNext = function () {
-        this.goToSlide(this.current + 1);
+        this.goToSlide(this.current + 1, false, true);
     };
 
     /**
-     * Goes to the given slide.
+     * Goes to the given slide
      * @param slide The slide to go to.
+     * @param manual If the action is invoked by the user
+     * @param toLeft If the old slide should move to the left. Currently breaks the animation on some edge-cases. TODO?
      */
-    this.goToSlide = function (slide) {
-        if(this.paused) {
+    this.goToSlide = function (slide, manual) {
+        if(this.paused && !manual) {
             return;
         }
 
@@ -83,36 +72,33 @@ function SlideShow(elements) {
         }
 
         this.elements[this.current].present();
-
-        var nextElementNumber = this.current + 1 >= elements.length ? 0 : this.current + 1;
-        elements[nextElementNumber].prepare(false);
     };
 
     /**
-     * Prepares to go to the given slide and goes to it (after a small delay).
-     * Will slide to the right or the left depending on the position.
-     * @param slide The slide to go to.
+     * Adds the buttons.
      */
-    this.prepareAndGoTo = function (slide) {
-        if (slide == this.current) {
-            // Do not do anything if the current slide is there
-            return;
+    this.createButtons = function () {
+        var slideshowContainer = document.getElementById("slideshow");
+        var buttonGroup = document.createElement("div");
+        buttonGroup.className = "button-group";
+        slideshowContainer.appendChild(buttonGroup);
+
+        for(var i = 0; i < this.elements.length; i++) {
+            var button = document.createElement("button");
+            button.innerHTML = i + 1;
+
+            button.onclick = function(instance, index) {
+                return function () {
+                    instance.goToSlide(index, true);
+                }
+            }(this, i);
+
+            buttonGroup.appendChild(button);
         }
 
-        var fromRight = false;
-
-        if (slide < this.current) {
-            fromRight = true;
-        }
-
-        elements[slide].prepare(fromRight);
-
-        // Some browsers may do the animation correctly if done in one frame
-        setTimeout(this.goToSlide(slide), 20);
     }
-};
+}
 
-// Sadly, I need to use JS here AFAIK
 function resizeSlide() {
     var containerElement = document.getElementsByClassName("content")[0];
     var partElements = document.getElementsByClassName("part");
@@ -124,13 +110,17 @@ function resizeSlide() {
 
         var height = element.getElementsByClassName("text")[0].offsetHeight;
 
-        if(element.getElementsByTagName("img").length !== 0) {
+        if(element.getElementsByTagName("img").length !== 0 && screen.availWidth >= 550) {
             height = Math.max(height, element.getElementsByTagName("img")[0].offsetHeight);
         }
 
         if(height > highestSize) {
             highestSize = height;
         }
+    }
+
+    if(highestSize > 0) {
+        highestSize += 30;  // Some extra space for buttons and to be extra-safe
     }
 
     containerElement.style.height = highestSize + "px";
@@ -146,6 +136,7 @@ function initialize() {
     }
 
     var slideShow = new SlideShow(slides);
+    slideShow.createButtons();
 
     document.body.onresize = resizeSlide;
 
