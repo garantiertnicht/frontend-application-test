@@ -55,7 +55,7 @@
 
 @media screen and (min-width: 550px) {
     .content > .part > .text {
-        left: calc(25% + 20px);
+        left: 170px;
     }
 
     .content > .part > img {
@@ -63,8 +63,7 @@
 
         left: 0;
 
-        width: 25%;
-        max-width: 200px;
+        width: 150px; /* I'm still not sure on this, but it'll do */
 
         padding-right: 10px;
         padding-top: 10px;
