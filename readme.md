@@ -1,4 +1,6 @@
-Frontend Testaufgaben für die Bewerbung bei FLYACTS
+Diese Aufgaben wurden für eine Bewerbung an FLYACTS bearbeited. Ich würde bei erneuter Bearbeitung einige Äbderungen vornegmen (z. B. prototype als javascript-Objekt, eine übergeordnete `<section>` für die Slideshow, etc.) CSS und JS wurden selbstständig erarbeitet.
+
+```Frontend Testaufgaben für die Bewerbung bei FLYACTS
 ==============================================
 
 Um mehr über deine  Fähigkeiten zu erfahren, haben wir zwei Aufgaben für dich vorbereitet, die als Ergänzung deiner Bewerbung dienen.
@@ -38,4 +40,4 @@ Zusätzlich sollen die Punkte um ein aussagekräftiges Bild angereichert werden,
 
 Anmerkungen:
 
-- Es soll ausschließlich pures JavaScript verwendet werden (Kein jQuery oder Ähnliches)
+- Es soll ausschließlich pures JavaScript verwendet werden (Kein jQuery oder Ähnliches)```
